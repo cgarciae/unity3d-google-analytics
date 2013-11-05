@@ -174,11 +174,19 @@ public class GoogleAnalyticsForApps
 	private IEnumerator WaitForRequest(WWW www)
     {	
         yield return www;
+		
  
         // check for errors
         if (www.error != null)
         {
             Debug.Log("WWW Error: "+ www.error);
 		}
-    }	
+		else
+		{
+			foreach ( string key in www.responseHeaders.Keys) 
+			{
+			    Debug.Log("Key: " + key + ", Value: " + www.responseHeaders[key] );
+			}
+    	}	
+	}
 }
