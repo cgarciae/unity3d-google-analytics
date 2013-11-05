@@ -7,4 +7,34 @@ This class uses the new "Measurement Protocol" (see https://developers.google.co
 
 The library is platform independant and works for webplayer,IOS,Android and Blackberry 10.
 
-For a simple sample see Sample.cs
+
+How to use?
+============
+
+1. Add CGoogleAnalytics.cs to a GameObject that will not be deleted.
+2. Setup the public variables Appname, Profile Id and Appversion in the editor.
+3. Call any method of CGoogleAnalyticsForApps using CGoogleAnalytics.instance.METHOD(), some of the methods are:
+
+    -TrackSession(bool _start)
+    
+    -TrackAppview(string _contentDescription)
+    
+    -TrackEvent(string _category,string _label,string _action, int _value)
+
+
+Example
+=======
+
+    // session starts
+	  CGoogleAnalytics.instance.analytics.TrackSession(true);
+	  
+    // tracking screens
+	  CGoogleAnalytics.instance.analytics.TrackAppview("SampleScreen");
+	  
+    // track some event
+    CGoogleAnalytics.instance.analytics.TrackEvent("eventCategory","eventLabel","eventAction",1234);
+    
+    // session ends
+    CGoogleAnalytics.instance.analytics.TrackSession(false);
+
+
